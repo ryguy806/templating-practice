@@ -1,0 +1,40 @@
+<include href="header.html">
+<body>
+    <h1>{{ @title }}</h1>
+
+    <h3>Hello World!</h3>
+    <p>The temperature is {{ @temp }} F</p>
+    <p>or {{ round((@temp-32) * (5.0/9.0), 2) }} C.</p>
+
+    <h3>Variables that are functions.</h3>
+    <p>{{ @radius }}</p>
+
+    <h3>My favorite fruits</h3>
+    <ul>
+    <repeat group = "{{ @fruits }}" value="{{ @fruits }}">
+        <li>{{ @fruits }}</li>
+    </repeat>
+    </ul>
+
+    <h3>Using arrays in different ways.</h3>
+    <ul>
+        <repeat group="{{ @bookmarks }}" value="{{ @bookmarks }}" key="{{ @key }}">
+            <li><a href="{{ @bookmarks }}">{{ @key }}</a></li>
+        </repeat>
+    </ul>
+
+    <h3>Flavor Checkboxes</h3>
+    <form>
+        <repeat group="{{@flavors}}" value="{{ @value }}" key="{{ @key }}">
+            <input type="checkbox" value="{{ @key }}" id="flavor">
+            <label for="flavor">{{ @value }}</label>
+        </repeat>
+    </form>
+
+    <h3>Checking true or false</h3>
+    <check if="{{ @temp >= 60 }}">
+       <ture><p>It's warm</p></ture>
+       <false><p>It's cold</p></false>
+    </check>
+</body>
+</html>
